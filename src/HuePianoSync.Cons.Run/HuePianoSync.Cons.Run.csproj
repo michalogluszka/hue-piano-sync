@@ -1,11 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Q42.HueApi" Version="3.18.1" />
+    <ProjectReference Include="..\HuePianoSync\HuePianoSync.csproj" />
   </ItemGroup>
 
 </Project>
