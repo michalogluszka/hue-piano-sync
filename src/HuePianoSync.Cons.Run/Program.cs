@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Q42.HueApi;
+using System;
 using System.Threading.Tasks;
 
 namespace HuePianoSync.Cons.Run
@@ -10,9 +11,15 @@ namespace HuePianoSync.Cons.Run
             Console.WriteLine("Hello Hue!");
 
             HueSync sync = new HueSync();
-
             var initTask = sync.Initialize();
-            var init = await initTask;            
+            var lights = await initTask;
+            
+            foreach(var l in lights)
+            {
+                Console.WriteLine(l.Id);
+                Console.WriteLine(l.Name);
+            }
+           
         }
     }
 }
