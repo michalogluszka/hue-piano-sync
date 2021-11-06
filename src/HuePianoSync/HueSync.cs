@@ -21,7 +21,14 @@ namespace HuePianoSync
         }
 
         public void Play()
-        {         
+        {
+
+            //IEnumerable<Light> lightsRes = _client.GetLightsAsync().Result;
+            //foreach(var l in lightsRes)
+            //{
+            //    Console.WriteLine(l.Name + " " + l.Id);
+            //}    
+
 
             var waitTime = 2000;
 
@@ -30,27 +37,27 @@ namespace HuePianoSync
             var cmdOn = new LightCommand();
             cmdOn.TurnOn();
 
-            _client.SendCommandAsync(cmdOn, new[] { HueHomeConfig.GardenLeft });
+            _client.SendCommandAsync(cmdOn, new[] { HueHomeConfig.Attick1 });
 
             Task.Delay(waitTime).Wait();
 
 
-            _client.SendCommandAsync(cmdOn, new[] { HueHomeConfig.GardenMiddle });
+            _client.SendCommandAsync(cmdOn, new[] { HueHomeConfig.Attick2 });
             Task.Delay(waitTime).Wait(); ;
 
-            _client.SendCommandAsync(cmdOn, new[] { HueHomeConfig.GardenRight });
+            _client.SendCommandAsync(cmdOn, new[] { HueHomeConfig.Attick3 });
             Task.Delay(waitTime).Wait(); ;
 
 
             var cmdOff = new LightCommand();
             cmdOff.TurnOff();
-            _client.SendCommandAsync(cmdOff, new[] { HueHomeConfig.GardenRight });
+            _client.SendCommandAsync(cmdOff, new[] { HueHomeConfig.Attick1 });
             Task.Delay(waitTime).Wait(); ;
 
-            _client.SendCommandAsync(cmdOff, new[] { HueHomeConfig.GardenMiddle });
+            _client.SendCommandAsync(cmdOff, new[] { HueHomeConfig.Attick2 });
             Task.Delay(waitTime).Wait(); ;
 
-            _client.SendCommandAsync(cmdOff, new[] { HueHomeConfig.GardenLeft });
+            _client.SendCommandAsync(cmdOff, new[] { HueHomeConfig.Attick3 });
             Task.Delay(waitTime).Wait(); ;
 
 
